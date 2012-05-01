@@ -48,7 +48,7 @@
 %% @doc Main doclet entry point. 
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
-	Skiplist = proplists:get_value(doclet_list, Ctxt#context.skip_dirs),
+	Skiplist = proplists:get_value(skip_dirs, Ctxt#context.opts),
 	io:format("~p~n", [Skiplist]),
 	run(Cmd, Ctxt, Doclist). 
 
