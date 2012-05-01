@@ -58,8 +58,7 @@
 %%
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
-%	run(Cmd, Ctxt, Doclist).
-	io:format("~p~n", [Doclist]).
+	run(Cmd, Ctxt, Doclist). 
 
 %%
 %% Local Functions
@@ -68,5 +67,5 @@ run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 run(_Cmd, _Ctxt, []) -> true;
 run(Cmd, Ctxt, [Doclet | Tail]) ->
 	io:format("Running ~p~n", [Doclet]),
-%	Doclet:run(Cmd, Ctxt),
+	Doclet:run(Cmd, Ctxt),
 	run(Cmd, Ctxt, Tail).
