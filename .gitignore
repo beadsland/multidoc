@@ -1,6 +1,5 @@
 .project
 .settings
-/doc/
-!/doc/*.md
-
-/deps
+doc/
+!doc/*.md
+deps
