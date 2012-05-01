@@ -26,9 +26,9 @@
 %% @author Beads D. Land-Trujillo [http://twitter.com/beadsland]
 %% @copyright 2012 Beads D. Land-Trujillo
 
-%% @version 0.0.1
+%% @version 0.0.2
 -module(multi_doclet).
--version("0.0.1").
+-version("0.0.2").
 
 %%
 %% Include files
@@ -48,6 +48,7 @@
 %% @doc Main doclet entry point. 
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
+	io:format("~p~n", [Ctxt]),
 	run(Cmd, Ctxt, Doclist). 
 
 %%
