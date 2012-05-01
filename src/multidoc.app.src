@@ -6,7 +6,7 @@
 %%
 %%======================================
 
-{application, multi,
+{application, multidoc,
  [
   {description, ""},
   {vsn, "1"},
