@@ -1,0 +1,12 @@
+{application, bin,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { bin_app, []}},
+  {env, []}
+ ]}.
