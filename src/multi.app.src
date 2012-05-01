@@ -1,4 +1,12 @@
-{application, bin,
+%%-*- mode:erlang -*-
+
+%%======================================
+%%
+%% .app file provided to satisfy rebar.
+%%
+%%======================================
+
+{application, multi,
  [
   {description, ""},
   {vsn, "1"},
@@ -7,6 +15,6 @@
                   kernel,
                   stdlib
                  ]},
-  {mod, { bin_app, []}},
+  {mod, { multi_app, []}},
   {env, []}
  ]}.
