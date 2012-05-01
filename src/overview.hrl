@@ -32,6 +32,7 @@
 %% {edoc_opts, [
 %%		{doclet, multi_doclet},
 %%		{doclet_list, [edown_doclet, edoc_doclet]},
+%%		{skip_libs, ["deps"]},   			# multi_doc will skip these libraries
 %%		{top_level_readme, {"./README.md", "http://github.com/<i>user</i>/<i>repository</i>"}},
 %%		{todo, true}
 %%		]}.

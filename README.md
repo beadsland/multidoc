@@ -5,7 +5,7 @@
 
 Copyright (c) 2012 Beads D. Land-Trujillo
 
-__Version:__ 0.0.1
+__Version:__ 0.0.2
 
 __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`](http://twitter.com/beadsland)).
 
@@ -19,6 +19,7 @@ at once.
   {edoc_opts, [
  		{doclet, multi_doclet},
  		{doclet_list, [edown_doclet, edoc_doclet]},
+ 		{skip_libs, ["deps"]},   			# multi_doc will skip these libraries
  		{top_level_readme, {"./README.md", "http://github.com/<i>user</i>/<i>repository</i>"}},
  		{todo, true}
  		]}.
