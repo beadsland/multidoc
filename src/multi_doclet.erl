@@ -22,25 +22,7 @@
 %% -----------------------------------------------------------------------
 %% CDDL HEADER END
 
-%% @doc Multi-document edoc doclet.
-%%
-%% Sample rebar.config using this doclet:
-%% <pre>
-%% {lib_dirs, ["deps"]}.
-%%
-%% {edoc_opts, [
-%%		{doclet, multi_doclet},
-%%		{doclet_list, [edown_doclet, edoc_doclet]},
-%%		{top_level_readme, {"./README.md", "http://github.com/beadsland/nosh"}},
-%%		{todo, true}
-%%		]}.
-%%
-%% {deps, [
-%%		{edown, ".*", {git, "git://github.com/beadsland/edown", {branch, master}}},
-%%		{multidoc, ".*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
-%%		]}.
-%% </pre>
-%% @end
+-include("overview.hrl").
 %% @author Beads D. Land-Trujillo [http://twitter.com/beadsland]
 %% @copyright 2012 Beads D. Land-Trujillo
 

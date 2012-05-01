@@ -1,0 +1,5 @@
+% Headers don't work in overview.edoc file, so we include everything from a header file.
+%
+% This has the added advantage that Eclipse knows how to syntax-check .hrl files...
+
+@headerfile "../src/overview.hrl"
