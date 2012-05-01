@@ -64,8 +64,10 @@ run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 %% Local Functions
 %%
 
-run(_Cmd, _Ctxt, []) -> true;
+run(_Cmd, _Ctxt, []) -> ok;
 run(Cmd, Ctxt, [Doclet | Tail]) ->
-	io:format("Running ~p~n", [Doclet]),
-	Doclet:run(Cmd, Ctxt),
-	run(Cmd, Ctxt, Tail).
+	case run(Cmd, Ctxt, Tail) of
+		ok		->	io:format("Running ~p~n", [Doclet]),
+					Doclet:run(Cmd, Ctxt);
+		Error	->	exit(Error)
+	end.
