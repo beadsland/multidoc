@@ -61,9 +61,8 @@ run(Cmd, Ctxt, Doclist, []) -> run(Cmd, Ctxt, Doclist);
 run(Cmd, Ctxt, Doclist, [Skip | Tail]) ->
 	Path = proplists:get_value(app_default, Ctxt#context.opts),
 	{ok, MP} = re:compile(Skip ++ "$"),
-	io:format("test: ~p~n", [{Path, MP, re:run(Path, MP)}]),
 	case re:run(Path, MP, [{capture, none}]) of
-		match	->	io:format("Skipping doc for ~s", [Skip]), 
+		match	->	io:format("Skipping doc for ~s~n", [Skip]), 
 					ok;
 		nomatch	->	run(Cmd, Ctxt, Doclist, Tail)
 	end.
