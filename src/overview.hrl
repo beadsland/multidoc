@@ -32,7 +32,7 @@
 %% {edoc_opts, [
 %%		{doclet, multi_doclet},
 %%		{doclet_list, [edown_doclet, edoc_doclet]},
-%%		{top_level_readme, {"./README.md", "http://github.com/beadsland/nosh"}},
+%%		{top_level_readme, {"./README.md", "http://github.com/<i>user</i>/<i>repository</i>"}},
 %%		{todo, true}
 %%		]}.
 %%
