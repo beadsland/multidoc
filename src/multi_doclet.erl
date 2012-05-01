@@ -49,8 +49,8 @@
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
 	case proplists:get_value(skip_deps, Ctxt#context.opts) of
-		undef	-> run(Cmd, Ctxt, Doclist);
-		Skips	-> run(Cmd, Ctxt, Doclist, Skips)
+		undefined	-> run(Cmd, Ctxt, Doclist);
+		Skips		-> run(Cmd, Ctxt, Doclist, Skips)
 	end.
 
 %%
