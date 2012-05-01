@@ -43,6 +43,9 @@
 %%
 %% API Functions
 %%
+
+%% @spec (Command::doclet_gen() | doclet_toc(), edoc_context()) -> ok
+%% @doc Main doclet entry point. 
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
 	run(Cmd, Ctxt, Doclist). 

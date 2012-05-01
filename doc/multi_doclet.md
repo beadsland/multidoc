@@ -18,7 +18,7 @@ __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`
 ##Function Index##
 
 
-<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#run-2">run/2</a></td><td></td></tr></table>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#run-2">run/2</a></td><td>Main doclet entry point.</td></tr></table>
 
 
 <a name="functions"></a>
@@ -32,5 +32,10 @@ __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`
 
 
 
-`run(Doclet_gen, Context) -> any()`
+<pre>run(Command::<a href="#type-doclet_gen">doclet_gen()</a> | <a href="#type-doclet_toc">doclet_toc()</a>, Context::<a href="#type-edoc_context">edoc_context()</a>) -> ok</pre>
+<br></br>
 
+
+
+
+Main doclet entry point.
