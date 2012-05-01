@@ -48,13 +48,24 @@
 %% @doc Main doclet entry point. 
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
-	Skiplist = proplists:get_value(skip_dirs, Ctxt#context.opts),
-	io:format("~p~n", [Skiplist]),
-	run(Cmd, Ctxt, Doclist). 
+	case proplists:get_value(skip_deps, Ctxt#context.opts) of
+		undef	-> run(Cmd, Ctxt, Doclist);
+		Skips	-> run(Cmd, Ctxt, Doclist, Skips)
+	end.
 
 %%
 %% Local Functions
 %%
+
+run(Cmd, Ctxt, Doclist, []) -> run(Cmd, Ctxt, Doclist);
+run(Cmd, Ctxt, Doclist, [Skip | Tail]) ->
+	Path = proplists:get_value(app_default, Ctxt#context.opts),
+	{ok, MP} = re:compile(Skip ++ "/$"),
+	case re:run(Path, MP) of
+		match	->	io:format("Skipping doc for ~s", [Skip]), 
+					ok;
+		nomatch	->	run(Cmd, Ctxt, Doclist, Tail)
+	end.
 
 run(_Cmd, _Ctxt, []) -> ok;
 run(Cmd, Ctxt, [Doclet | Tail]) ->
