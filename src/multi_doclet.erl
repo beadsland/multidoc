@@ -22,19 +22,24 @@
 %% -----------------------------------------------------------------------
 %% CDDL HEADER END
 
-%% @doc The `nosh' process module, which handles messaging with a paired 
-%% `noterm' process.
+%% @doc Multi-document edoc doclet.
 %%
-%% <b>Draft Notes</b>
+%% Sample rebar.config using this doclet:
+%% <pre>
+%% {lib_dirs, ["deps"]}.
 %%
-%% % A `nosh' process is launched by first starting {@link noterm}, which 
-%% handles keyboard input, sending this to the `nosh' process as messages, 
-%% and presenting output and errors to the user as they are received in 
-%% message form from the `nosh' process.  
+%% {edoc_opts, [
+%%		{doclet, multi_doclet},
+%%		{doclet_list, [edown_doclet, edoc_doclet]},
+%%		{top_level_readme, {"./README.md", "http://github.com/beadsland/nosh"}},
+%%		{todo, true}
+%%		]}.
 %%
-%% The `nosh' process continues to run until it receives an end-of-file 
-%% message from `noterm'.  This is currently produced by typing a period 
-%% (`.') by itself on a line, followed by a `<newline>'.
+%% {deps, [
+%%		{edown, ".*", {git, "git://github.com/beadsland/edown", {branch, master}}},
+%%		{multidoc, ".*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
+%%		]}.
+%% </pre>
 %% @end
 %% @author Beads D. Land-Trujillo [http://twitter.com/beadsland]
 %% @copyright 2012 Beads D. Land-Trujillo
