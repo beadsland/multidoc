@@ -22,10 +22,6 @@
 %% -----------------------------------------------------------------------
 %% CDDL HEADER END
 
-% @title Welcome to multidoc
-% @author Beads D. Land-Trujillo [http://twitter.com/beadsland]
-% @copyright 2012 Beads D. Land-Trujillo
-% @version 0.0.1
 % @doc This is a very simple module for using multiple edoc doclets
 % at once.
 %
