@@ -48,8 +48,9 @@
 %% @doc Main doclet entry point. 
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
-	case proplists:get_value(skip_deps, Ctxt#context.opts) of
-		undefined	-> run(Cmd, Ctxt, Doclist);
+	case proplists:get_value(skip_libs, Ctxt#context.opts) of
+		undefined	-> io:format("skip libs undef\n"),
+					   run(Cmd, Ctxt, Doclist);
 		Skips		-> run(Cmd, Ctxt, Doclist, Skips)
 	end.
 
@@ -60,7 +61,7 @@ run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 run(Cmd, Ctxt, Doclist, []) -> run(Cmd, Ctxt, Doclist);
 run(Cmd, Ctxt, Doclist, [Skip | Tail]) ->
 	Path = proplists:get_value(app_default, Ctxt#context.opts),
-	{ok, MP} = re:compile(Skip ++ "/$"),
+	{ok, MP} = re:compile(Skip ++ "$"),
 	case re:run(Path, MP) of
 		match	->	io:format("Skipping doc for ~s", [Skip]), 
 					ok;
