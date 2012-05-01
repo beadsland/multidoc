@@ -24,8 +24,8 @@ at once.
  		]}.
  
   {deps, [
- 		{edown, ".*", {git, "git://github.com/beadsland/edown", {branch, master}}},
- 		{multidoc, ".*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
+ 		{edown, ".\*", {git, "git://github.com/beadsland/edown", {branch, master}}},
+ 		{multidoc, ".\*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
  		]}.
   </pre>
 
