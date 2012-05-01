@@ -41,3 +41,4 @@
 %%		{multidoc, ".\*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
 %%		]}.
 %% </pre>
+% @end
