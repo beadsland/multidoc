@@ -12,23 +12,23 @@ __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`
 This is a very simple module for using multiple edoc doclets 
 at once.
 
-  Sample rebar.config using this doclet:<pre>
- 
-  {lib_dirs, ["deps"]}.
- 
-  {edoc_opts, [
- 		{doclet, multi_doclet},
- 		{doclet_list, [edown_doclet, edoc_doclet]},
- 		{skip_libs, ["deps"]},   			# multi_doc will skip these libraries
- 		{top_level_readme, {"./README.md", "http://github.com/<i>user</i>/<i>repository</i>"}},
- 		{todo, true}
- 		]}.
- 
-  {deps, [
- 		{edown, ".\*", {git, "git://github.com/beadsland/edown", {branch, master}}},
- 		{multidoc, ".\*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
- 		]}.
-  </pre>
+Sample rebar.config using this doclet:	
+	 
+	  {lib_dirs, ["deps"]}.
+	 
+	  {edoc_opts, [
+	 		{doclet, multi_doclet},
+	 		{doclet_list, [edown_doclet, edoc_doclet]},
+	 		{skip_libs, ["deps"]},   			# multi_doc will skip these libraries
+	 		{top_level_readme, {"./README.md", "http://github.com/<i>user</i>/<i>repository</i>"}},
+	 		{todo, true}
+	 		]}.
+	 
+	  {deps, [
+	 		{edown, ".\*", {git, "git://github.com/beadsland/edown", {branch, master}}},
+	 		{multidoc, ".\*", {git, "git://github.com/beadsland/multidoc", {branch, master}}}
+	 		]}.
+
 
 ##Modules##
 

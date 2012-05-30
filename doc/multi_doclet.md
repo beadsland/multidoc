@@ -5,13 +5,9 @@
 * [Function Details](#functions)
 
 
-
-
-
-
 Copyright (c) 2012 Beads D. Land-Trujillo
 
-__Version:__ 0.0.2
+__Version:__ 0.1.3
 
 __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`](http://twitter.com/beadsland)).<a name="index"></a>
 
@@ -30,12 +26,8 @@ __Authors:__ Beads D. Land-Trujillo (_web site:_ [`http://twitter.com/beadsland`
 ###run/2##
 
 
-
-
-<pre>run(Command::<a href="#type-doclet_gen">doclet_gen()</a> | <a href="#type-doclet_toc">doclet_toc()</a>, Context::<a href="#type-edoc_context">edoc_context()</a>) -> ok</pre>
+	run(Command::<a href="#type-doclet_gen">doclet_gen()</a> | <a href="#type-doclet_toc">doclet_toc()</a>, Context::<a href="#type-edoc_context">edoc_context()</a>) -> ok
 <br></br>
-
-
 
 
 Main doclet entry point.

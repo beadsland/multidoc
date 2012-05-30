@@ -1,10 +1,10 @@
 %% CDDL HEADER START
 %% -----------------------------------------------------------------------
-%% The contents of this file are subject to the Common Development and 
-%% Distribution License, Version 1.0 (the "License"); you may not use 
-%% this file except in compliance with the License.  You should have 
-%% received a copy of the Common Development and Distribution License 
-%% along with this software.  If not, it can be retrieved online at 
+%% The contents of this file are subject to the Common Development and
+%% Distribution License, Version 1.0 (the "License"); you may not use
+%% this file except in compliance with the License.  You should have
+%% received a copy of the Common Development and Distribution License
+%% along with this software.  If not, it can be retrieved online at
 %% http://www.opensource.org/licenses/CDDL-1.0
 %%
 %% Software distributed under the License is distributed on an "AS IS"
@@ -26,9 +26,9 @@
 %% @author Beads D. Land-Trujillo [http://twitter.com/beadsland]
 %% @copyright 2012 Beads D. Land-Trujillo
 
-%% @version 0.0.2
+%% @version 0.1.3
 -module(multi_doclet).
--version("0.0.2").
+-version("0.1.3").
 
 %%
 %% Include files
@@ -45,13 +45,13 @@
 %%
 
 %% @spec (Command::doclet_gen() | doclet_toc(), edoc_context()) -> ok
-%% @doc Main doclet entry point. 
+%% @doc Main doclet entry point.
 run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
-	Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
-	case proplists:get_value(skip_libs, Ctxt#context.opts) of
-		undefined	-> run(Cmd, Ctxt, Doclist);
-		Skips		-> run(Cmd, Ctxt, Doclist, Skips)
-	end.
+  Doclist = proplists:get_value(doclet_list, Ctxt#context.opts),
+  case proplists:get_value(skip_libs, Ctxt#context.opts) of
+    undefined	-> run(Cmd, Ctxt, Doclist);
+    Skips		-> run(Cmd, Ctxt, Doclist, Skips)
+  end.
 
 %%
 %% Local Functions
@@ -59,18 +59,17 @@ run(#doclet_gen{}=Cmd, #context{}=Ctxt) ->
 
 run(Cmd, Ctxt, Doclist, []) -> run(Cmd, Ctxt, Doclist);
 run(Cmd, Ctxt, Doclist, [Skip | Tail]) ->
-	Path = proplists:get_value(app_default, Ctxt#context.opts),
-	{ok, MP} = re:compile(Skip ++ "$"),
-	case re:run(Path, MP, [{capture, none}]) of
-		match	->	io:format("Skipping doc for ~s~n", [Skip]), 
-					ok;
-		nomatch	->	run(Cmd, Ctxt, Doclist, Tail)
-	end.
+  Path = proplists:get_value(app_default, Ctxt#context.opts),
+  {ok, MP} = re:compile(Skip ++ "$"),
+  case re:run(Path, MP, [{capture, none}]) of
+    match	-> io:format("Skipping doc for ~s~n", [Skip]), ok;
+    nomatch	-> run(Cmd, Ctxt, Doclist, Tail)
+  end.
 
 run(_Cmd, _Ctxt, []) -> ok;
 run(Cmd, Ctxt, [Doclet | Tail]) ->
-	case run(Cmd, Ctxt, Tail) of
-		ok		->	io:format("Running ~p~n", [Doclet]),
-					Doclet:run(Cmd, Ctxt);
-		Error	->	exit(Error)
-	end.
+  case run(Cmd, Ctxt, Tail) of
+    ok		-> io:format("Running ~p~n", [Doclet]),
+               Doclet:run(Cmd, Ctxt);
+    Error	-> exit(Error)
+  end.
