@@ -1,6 +1,10 @@
 .project
 .settings
-doc/
+doc
 !doc/*.md
 !doc/*.edoc
 deps
+*.dump
+*.stackdump
+ebin
+include/.unison/*
